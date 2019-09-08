@@ -32,6 +32,11 @@ namespace CustomerMaintenance
             }
             set
             {
+                if (value.Length>30)
+                {
+                    throw new ArgumentException("Maximun length of first name is 30 characters.");
+                }
+
                 firstname = value;
             }
         }
@@ -44,6 +49,11 @@ namespace CustomerMaintenance
             }
             set
             {
+                if(value.Length>30)
+                {
+                    throw new ArgumentException("Maximum length of last name is 30 characters.");
+                }
+
                 lastname = value;
             }
         }
@@ -56,6 +66,11 @@ namespace CustomerMaintenance
             }
             set
             {
+                //if (value.Length>30)
+                //{
+                //    throw new ArgumentException("Maximum length for email is 100 characters.");
+                //}
+
                 email = value;
             }
         }

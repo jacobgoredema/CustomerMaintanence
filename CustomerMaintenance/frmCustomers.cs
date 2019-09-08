@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomerMaintenance.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace CustomerMaintenance
 {
     public partial class frmCustomers : Form
     {
-        List<Customer> customers = null;
+        private CustomerList customers = new CustomerList();
 
         public frmCustomers()
         {
@@ -26,9 +27,7 @@ namespace CustomerMaintenance
 
             if(customer!=null)
             {
-                customers.Add(customer);
-                CustomerDb.SaveCustomers(customers);
-                FillCustomerListBox();
+                customers += customer;
             }
         }
 
@@ -43,9 +42,7 @@ namespace CustomerMaintenance
 
                 if (button == DialogResult.Yes)
                 {
-                    customers.Remove(customer);
-                    CustomerDb.SaveCustomers(customers);
-                    FillCustomerListBox();
+                    customers -= customer;
                 }
             }
         }
@@ -57,16 +54,23 @@ namespace CustomerMaintenance
 
         private void frmCustomers_Load(object sender, EventArgs e)
         {
-            customers = CustomerDb.GetCustomers();
+            customers.Changed += customers =>
+             {
+                 customers.Save();
+                 FillCustomerListBox();
+             };
+
+            customers.Fill();
             FillCustomerListBox();
         }
 
         private void FillCustomerListBox()
         {
             lstCustomers.Items.Clear();
-            foreach (Customer customer in customers)
+            for (int i = 0; i < customers.Count; i++)
             {
-                lstCustomers.Items.Add(customer.GetDispayText());
+                Customer c = customers[i];
+                lstCustomers.Items.Add(c.GetDispayText());
             }
         }
     }

@@ -68,6 +68,7 @@
             // txtFirstname
             // 
             this.txtFirstname.Location = new System.Drawing.Point(127, 21);
+            this.txtFirstname.MaxLength = 30;
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(186, 20);
             this.txtFirstname.TabIndex = 1;
@@ -75,6 +76,7 @@
             // txtLastname
             // 
             this.txtLastname.Location = new System.Drawing.Point(127, 48);
+            this.txtLastname.MaxLength = 30;
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(186, 20);
             this.txtLastname.TabIndex = 3;
@@ -82,6 +84,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(127, 74);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(186, 20);
             this.txtEmail.TabIndex = 5;
