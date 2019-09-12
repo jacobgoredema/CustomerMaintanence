@@ -46,13 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerDb.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="DataContext\CustomerDb.cs" />
     <Compile Include="frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddMaintenance.Designer.cs">
+      <DependentUpon>frmAddMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddRetailCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddRetailCustomer.Designer.cs">
+      <DependentUpon>frmAddRetailCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddWholesaleCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddWholesaleCustomer.Designer.cs">
+      <DependentUpon>frmAddWholesaleCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCustomers.cs">
       <SubType>Form</SubType>
@@ -61,11 +79,22 @@
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerList.cs" />
+    <Compile Include="Models\RetailCustomer.cs" />
+    <Compile Include="Models\WholesaleCustomer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="Validation\Validator.cs" />
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddMaintenance.resx">
+      <DependentUpon>frmAddMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddRetailCustomer.resx">
+      <DependentUpon>frmAddRetailCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddWholesaleCustomer.resx">
+      <DependentUpon>frmAddWholesaleCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>

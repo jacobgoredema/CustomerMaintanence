@@ -34,7 +34,7 @@ namespace CustomerMaintenance
             {
                 if (value.Length>30)
                 {
-                    throw new ArgumentException("Maximun length of first name is 30 characters.");
+                    throw new ArgumentException("Maximun length of first name is 50 characters.");
                 }
 
                 firstname = value;
@@ -51,7 +51,7 @@ namespace CustomerMaintenance
             {
                 if(value.Length>30)
                 {
-                    throw new ArgumentException("Maximum length of last name is 30 characters.");
+                    throw new ArgumentException("Maximum length of last name is 50 characters.");
                 }
 
                 lastname = value;
@@ -68,13 +68,13 @@ namespace CustomerMaintenance
             {
                 //if (value.Length>30)
                 //{
-                //    throw new ArgumentException("Maximum length for email is 100 characters.");
+                //    throw new ArgumentException("Maximum length for email is 50 characters.");
                 //}
 
                 email = value;
             }
         }
 
-        public string GetDispayText() => firstname + " " + lastname + ", " + email;
+        public virtual string GetDispayText() => firstname + " " + lastname + ", " + email;
     }
 }
