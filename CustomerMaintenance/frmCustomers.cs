@@ -12,22 +12,23 @@ using System.Windows.Forms;
 namespace CustomerMaintenance
 {
     public partial class frmCustomers : Form
-    {
-        private CustomerList customers = new CustomerList();
-
+    {       
         public frmCustomers()
         {
             InitializeComponent();
         }
 
+        private CustomerList customers = new CustomerList();
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddCustomer addCustomerForm = new frmAddCustomer();
-            Customer customer = addCustomerForm.GetNewCustomer();
+            Customer customer;
+            frmAddWholesaleCustomer addWholesaleCustomer = new frmAddWholesaleCustomer();
+            customer = addWholesaleCustomer.GetNewCustomer();
 
             if(customer!=null)
             {
-                customers += customer;
+                customers.Add(customer);
             }
         }
 
@@ -36,7 +37,7 @@ namespace CustomerMaintenance
             int i = lstCustomers.SelectedIndex;
             if (i!=-1)
             {
-                Customer customer = customers[i];
+                Customer customer = (Customer)customers[i];
                 string message = "Are you sure youn want to delete " + customer.FirstName + " " + customer.Lastname + "?";
                 DialogResult button = MessageBox.Show(message, "confirm Delete", MessageBoxButtons.YesNo);
 
@@ -54,11 +55,7 @@ namespace CustomerMaintenance
 
         private void frmCustomers_Load(object sender, EventArgs e)
         {
-            customers.Changed += customers =>
-             {
-                 customers.Save();
-                 FillCustomerListBox();
-             };
+            customers.Changed += new CustomerList.ChangeHandler(HandleChange);            
 
             customers.Fill();
             FillCustomerListBox();
@@ -67,11 +64,28 @@ namespace CustomerMaintenance
         private void FillCustomerListBox()
         {
             lstCustomers.Items.Clear();
-            for (int i = 0; i < customers.Count; i++)
+            foreach (Customer c in customers)
             {
-                Customer c = customers[i];
                 lstCustomers.Items.Add(c.GetDispayText());
             }
+        }
+
+        private void btnAddRetail_Click(object sender, EventArgs e)
+        {
+            Customer customer;
+            frmAddRetailCustomer addRetailForm = new frmAddRetailCustomer();
+            customer = addRetailForm.GetNewCustomer();
+
+            if (customer!=null)
+            {
+                customers.Add(customer);
+            }
+        }
+
+        private void HandleChange(CustomerList list)
+        {
+            customers.Save();
+            FillCustomerListBox();
         }
     }
 }

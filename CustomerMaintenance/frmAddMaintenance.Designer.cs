@@ -106,7 +106,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmAddMaintenance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Maintenance";
+            this.Text = "Customer Maintenance";
             this.ResumeLayout(false);
             this.PerformLayout();
 
