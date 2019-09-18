@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomerMaintenance
 {
+    /// <summary>
+    /// Customer class
+    /// </summary>
     public class Customer
     {
         private string firstname;
@@ -17,6 +20,12 @@ namespace CustomerMaintenance
 
         }
 
+        /// <summary>
+        /// Creates a Customer object with the specified values.
+        /// </summary>
+        /// <param name="firstname">The firstname to be stored in the object.</param>
+        /// <param name="lastname">The last name  to be stored in the object.</param>
+        /// <param name="email">The email  to be stored in the object.</param>
         public Customer(string firstname,string lastname, string email)
         {
             FirstName = firstname;
@@ -24,6 +33,9 @@ namespace CustomerMaintenance
             Email = email;
         }
 
+        /// <summary>
+        /// Gets or sets the customer's first name
+        /// </summary>
         public string FirstName
         {
             get
@@ -41,6 +53,9 @@ namespace CustomerMaintenance
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's last name
+        /// </summary>
         public string Lastname
         {
             get
@@ -58,6 +73,9 @@ namespace CustomerMaintenance
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's email
+        /// </summary>
         public string Email
         {
             get
@@ -75,6 +93,10 @@ namespace CustomerMaintenance
             }
         }
 
+        /// <summary>
+        /// Concatenates the first name, last name, and email address for display.
+        /// </summary>
+        /// <returns>The formatted string</returns>
         public virtual string GetDispayText() => firstname + " " + lastname + ", " + email;
     }
 }
